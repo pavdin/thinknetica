@@ -15,7 +15,7 @@ b = sides[1]
 c = sides[2] # Гипотенуза
 
 sides_equal = a == b && a == c
-tr_right   = a**2 + b**2 == c**2
+tr_right = a**2 + b**2 == c**2
 
 if sides_equal
   puts "Треугольник равносторонний, но не прямоугольный."
