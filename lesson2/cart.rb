@@ -12,8 +12,8 @@ loop do
 end
 
 cart.each do |name, hash|
-sum += hash[:price] * hash[:quantity]
-puts "#{name}: #{hash[:price] * hash[:quantity]} р."
+  sum += hash[:price] * hash[:quantity]
+  puts "#{name}: #{hash[:price] * hash[:quantity]} р."
 end
 
 puts cart
