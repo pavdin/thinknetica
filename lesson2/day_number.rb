@@ -9,6 +9,6 @@ year = gets.to_i
 months[1] = 29 if year % 400 == 0 || year % 4 == 0 && year % 100 != 0
 
 total_days_months = months.take(month-1).sum
-total_days_months +=day
+total_days_months += day
 
 puts "Этот день #{total_days_months}-й по счету в году"
