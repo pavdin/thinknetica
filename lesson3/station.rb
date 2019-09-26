@@ -1,8 +1,8 @@
 class Station
   attr_reader :trains, :name
-  
+
   def initialize(name)
-    @name = from_name
+    @name = name
     @trains = []
   end
 
@@ -12,5 +12,9 @@ class Station
 
   def departure_train(train)
     @trains.delete(train)
+  end
+
+  def trains_type(type)
+    @trains.select { |train| type == train.type }.size
   end
 end

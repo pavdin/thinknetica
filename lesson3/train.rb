@@ -33,34 +33,31 @@ class Train
   end
 
   def current_station
-    @route.stations[@current_station_index]
+    route.stations[@current_station_index]
   end
 
   def previous_station
-    route.stations[@current_station_index - 1] unless route.stations[@current_station_index] == route.stations.first
+    return unless @current_station_index > 0
+    route.stations[@current_station_index - 1]
   end
 
   def next_station
-    route.stations[@current_station_index + 1] unless route.stations[@current_station_index] == route.stations.last
+    route.stations[@current_station_index + 1]
   end
 
   def move_back_station
     if previous_station
-      @route.stations[@current_station_index].departure_train(self)
-      previous_station.take_train(self)
+      current_station.departure_train(self)
+      previous_station.arrival_train(self)
       @current_station_index -= 1
-    else
-      puts 'Поезд не может поехать назад, т.к. находится на первой станции маршрута.'
     end
   end
 
   def move_next_station
     if next_station
       @route.stations[@current_station_index].departure_train(self)
-      next_station.take_train(self)
+      next_station.arrival_train(self)
       @current_station_index += 1
-    else
-      puts 'Поезд не может ехать вперед, т.к. находится на конечной станции маршрута.'
     end
   end
 end
