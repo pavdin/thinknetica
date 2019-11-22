@@ -2,7 +2,7 @@ class Train
   include ManufacturerCompanyName
   include InstanceCounter
 
-  @@all_train = []
+  @@all_train = {}
 
   def self.find(number)
     @@all_train[number]
@@ -16,7 +16,7 @@ class Train
     @type
     @wagons = []
     @speed = 0
-    @@all_train[nubmer] = self
+    @@all_train[:nubmer] = self
     register_instance
   end
 
